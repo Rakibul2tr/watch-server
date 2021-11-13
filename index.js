@@ -157,6 +157,13 @@ app.use(express.json());
             const result= await bookings.deleteOne(filter);
             res.send(result)
         }) 
+        //products  delete function by admin
+        app.delete('/manegproduct/:id',async(req,res)=>{
+            const id=req.params.id;
+            const filter={_id:objectId(id)};
+            const result= await products.deleteOne(filter);
+            res.send(result)
+        }) 
 
         } finally {
         //   await client.close();
